@@ -1,0 +1,115 @@
+/**
+ * Menu
+ */
+
+ .menu-toggle input {
+    display: none;
+}
+
+.menu-state {
+    user-select: none;
+    position: relative;
+    z-index: 10;
+}
+
+    .menu-state span {
+        width: 18px;
+        height: 2px;
+        display: inline-block;
+        background: #000000;
+        pointer-events: none;
+        margin-right: 17px;
+        margin-bottom: 5px;
+    }
+
+        .menu-state span:before,
+        .menu-state span:after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 2px;
+            background: #000000;
+            transition: all 0.2s ease;
+        }
+
+        .menu-state span::before {
+            transform: translateY(-5px);
+        }
+
+        .menu-state span::after {
+            transform: translateY(5px);
+        }
+
+nav {
+    float: right;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    float: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: #ffffff;
+    transition: all 0.4s ease;
+    padding-top: 130px;
+    z-index: 9;
+}
+
+#mNav:checked body {
+    overflow: hidden;
+}
+
+#mNav:checked ~ nav {
+    visibility: visible;
+    height: 100%;
+    opacity: 0.95;
+    transition: all 0.2s ease;
+}
+
+#mNav:checked + .menu-state span {
+    visibility: hidden;
+}
+
+    #mNav:checked + .menu-state span::before {
+        transform: translateY(0) rotate(45deg);
+        visibility: visible;
+    }
+
+    #mNav:checked + .menu-state span::after {
+        transform: translateY(0) rotate(-45deg);
+        visibility: visible;
+    }
+
+nav .info-panel {
+    font-size: 12px;
+}
+
+nav .info-panel img {
+    max-width: 50%;
+}
+
+nav ul > li {
+    list-style: none;
+}
+
+nav ul > li {
+    font-size: 30px;
+    margin: 0 0 0 -3px;
+    height: 48px;
+}
+
+.login-nav ul {
+    list-style: none;
+}
+
+    .login-nav ul li {
+        display: inline-block;
+    }
+
+        .login-nav ul li a {
+            color: #000000;
+        }
+
+/* end menu */

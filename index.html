@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="./css/menu.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP:500,600,900" rel="stylesheet">
+  <link rel="stylesheet" href="./lib/normalize/normalize.min.css" />
+  <link rel="stylesheet" href="./lib/milligram/milligram.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <title>Notarias</title>
+</head>
+
+<body>
+
+  <div id="header">
+    <img src="images/header.svg">
+  </div>
+
+  <div class="container">
+    <div class="menu-toggle m-bottom-60">
+      <div class="row">
+        <div class="column">
+          <input type="checkbox" id="mNav" style="visibility: hidden;">
+          <label for="mNav" class="menu-state"><span></span> Menú</label>
+          <nav>
+            <div class="container" style="margin-top: 2%; margin-left: 10%;">
+              <div class="row">
+                <div class="column column-75">
+                  <ul>
+                    <li><i class="black-bullet" ></i><a href="./UploadDocument.html" style="color:black;">Cargar documento</a></li>
+                    <li><i class="black-bullet"></i><a href="./Documents.html" style="color:black;">Mis documentos</a></li>
+                    <li><i class="black-bullet"></i><a href="./SignDocument.html" style="color:black;">Firmar documento</a></li>
+                    <li><i class="black-bullet black-bullet-last"></i><a href="" style="color:black;">Certificados</a></li>
+                  </ul>
+                </div>
+                <div class="column column-25 text-center info-panel left-border" id="autor">
+                  <p> <b>Notarías</b> es un desarrollo de</p>
+                  <img src="./images/foonkie-logo.svg" alt="Foonkie Monkey">
+                  <p>Comunícate con nosotros para alianzas, comentarios o sugerencias: </p>
+                  <p><b>311 5050 890</b></p>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="column3">
+          <input type="submit" value="Alianzas" onclick="window.location.href='#footer'">
+          <input type="submit" id="" value="¿Cómo empezar?" onclick="window.location.href='#startContent'">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="column" style="margin-top: -4%;">
+        <img src="./images/logoNotarias.svg" width="200px" height="233px" style="margin-left: 15%;">
+      </div>
+      <div class="column2">
+        <h3 class="m-bottom-20">
+          <b>Autenticación</b> de firmas y documentos para procesos notariales basado en <b>Blockcahin</b>
+        </h3>
+      </div>
+
+    
+      <div class="column">
+      </div>
+    </div>
+  </div>
+
+  <div id="separator">
+    <img src="./images/separator.svg" alt="">
+    <h3 class="text-center">¿Cómo funciona?</h3>
+  </div>
+  <br>
+  <div class="container" id="content">
+    <div class="row">
+      <div class="column">
+        <img src="./images/seacrh.svg">
+      </div>
+
+      <div class="column column-50">
+        <p>Aplicación web <b>que permite la autenticación de firmas y realizar procesos de verificación de documentos,
+          </b>almacenando y
+          validando la información por medio de la tecnología <b>Blockchain</b>. Lo que hace que la <b>información</b>
+          allí guardada
+          sea <b>100% confiable, segura, inmutable y transparente</b>.</p>
+        <p>Esto permite reducir considerablemente los costos y tiempos de validación y autenticación de recursos en un
+          entorno notarial.</p>
+      </div>
+
+      <div class="column">
+        <img src="./images/cost.svg">
+      </div>
+    </div>
+  </div>
+
+  <div id="separator" >
+    <img src="./images/separator.svg" alt="" id="startContent">
+    <h3 class="text-center" >¿Cómo empezar?</h3>
+  </div>
+  <br>
+
+  <div class="container" id="content">
+    <div class="row">
+
+      <div class="column">
+        <h3 class="text-center">Carga tu documento</h3>
+        <br>
+        <img src="./images/UploadDocument.svg" width="150px" height="188px">
+        <br>
+        <br>
+        <p>Selecciona un documento desde tu ordenador, podrás visualizarlo antes de cargarlo en el sistema</p>
+      </div>
+
+      <div class="column">
+        <h3 class="text-center">Firma tu documento</h3>
+        <br>
+        <img src="./images/firmar.svg" width="150px" height="188px">
+        <br>
+        <br>
+        <p>Diseña tu firma como expresión de identidad para llevar a cabo el proceso de autenticación del recurso.
+          Asociala a un
+          documento cargado previamente </p>
+      </div>
+
+      <div class="column">
+        <h3 class="text-center">Documento autenticado</h3>
+        <br>
+        <img src="./images/Autenticar.svg" width="150px" height="188px">
+        <br>
+        <br>
+        <p>El documento y la firma son almacenados y verificados de una forma segura y confiable. El registro no
+          podrá ser modificado por terceros debido a que se almacena en una cadena de bloques de información</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="separator">
+    <img src="./images/separator.svg" alt="">
+  </div>
+
+  <div class="column column-25 text-center" id="footer">
+    <img src="./images/logoNotarias.svg" width="60px" height="70px" >
+    <p>Notarías es un desarrollo de</p>
+    <img src="./images/foonkie-logo.svg" width="70px" height="46px">
+    <p>Comunícate con nosotros para alianzas, comentarios o sugerencias: </p>
+    <p><b>311 5050 890</b></p>
+  </div>
+
+
+  <script>
+    document.getElementById("mNav").addEventListener("click", function () {
+      document.body.classList.toggle("no-scroll");
+    });
+  </script>
+
+</body>
+
+</html>

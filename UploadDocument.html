@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <link rel="stylesheet" type="text/css" href="./css/menu.css">
+  <link href="https://fonts.googleapis.com/css?family=Noto+Serif+JP:500,600,900" rel="stylesheet">
+  <link rel="stylesheet" href="./lib/normalize/normalize.min.css" />
+  <link rel="stylesheet" href="./lib/milligram/milligram.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <title>Carga tu documento</title>
+</head>
+
+<body>
+
+  <div id="header">
+    <img src="images/header.svg">
+  </div>
+
+  <div class="container">
+    <div class="menu-toggle m-bottom-60">
+      <div class="row">
+        <div class="column">
+          <input type="checkbox" id="mNav" style="visibility: hidden;">
+          <label for="mNav" class="menu-state"><span></span> Menú</label>
+          <nav>
+            <div class="container" style="margin-top: 2%; margin-left: 10%;">
+              <div class="row">
+                <div class="column column-75">
+                  <ul>
+                    <li><i class="black-bullet"></i><a href="./index.html" style="color:black;">Inicio</a></li>
+                    <li><i class="black-bullet"></i><a href="./Documents.html" style="color:black;">Mis documentos</a>
+                    </li>
+                    <li><i class="black-bullet"></i><a href="./SignDocument.html" style="color:black;">Firmar
+                        documento</a></li>
+                    <li><i class="black-bullet black-bullet-last"></i><a href="" style="color:black;">Certificados</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="column column-25 text-center info-panel left-border" id="autor">
+                  <p> <b>Notarías</b> es un desarrollo de</p>
+                  <img src="./images/foonkie-logo.svg" alt="Foonkie Monkey">
+                  <p>Comunícate con nosotros para alianzas, comentarios o sugerencias: </p>
+                  <p><b>311 5050 890</b></p>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="column3">
+          <div class="row">
+            <input type="submit" value="Visualizar documento" onclick="showfile();">
+            <input type="submit" id="newWindow" value="Ver en una nueva ventana" style="margin-left: 2%;"
+              onclick="generateWindow();">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mainForm">
+    <img src="./images/UploadDocument.svg" width="100px" height="126px">
+    <h2> Carga tu documento</h2>
+    <form id="form" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" id="file" required>
+      <input type="submit" value="Enviar">
+    </form>
+  </div>
+  <br>
+
+  <div id="fileview">
+    <iframe id="fileCounter" src="" style="width:0%; height:0px;" frameborder="0"></iframe>
+  </div>
+
+  <div id="separator">
+    <img src="./images/separator.svg" alt="">
+  </div>
+
+  <script>
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $('#fileCounter').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+    $("#file").change(function () {
+      readURL(this);
+    });
+
+
+
+    function showfile() {
+      var input = document.getElementById('file');
+      if (input.files && input.files[0]) {
+
+        document.getElementById("fileCounter").style.height = "700px";
+        document.getElementById("fileCounter").style.width = "100%";
+      } else {
+        alert("No se ha cargado ningun documento para visualizar");
+
+      }
+    }
+
+    function generateWindow() {
+      var input = document.getElementById('file');
+      if (input.files && input.files[0]) {
+        //window.open(input.files[0], '_blank');
+        alert("Archivo no reconocido");
+      } else {
+        alert("No se ha cargado ningun documento para visualizar");
+      }
+    }
+
+    document.getElementById("mNav").addEventListener("click", function () {
+      document.body.classList.toggle("no-scroll");
+    });
+
+    //Evitar redireccionar a la url de consumo del servicio
+    jQuery('#form').on('submit', function (event) {
+      event.preventDefault();
+      var form = $('#form')[0];
+      var formData = new FormData(form);
+      alert("El documento será almacenado temporalmente en el servidor mientras se completa el proceso de autenticación");
+      alert("¡Documento cargado con éxito!")
+      location.reload();
+
+      jQuery.ajax({
+        url: 'http://localhost:3000/upload',
+        data: formData,
+        type: 'POST',
+        contentType: false,
+        processData: false
+      }).then(function (response) {
+        console.log(response);
+      });
+    });
+
+  
+    
+  </script>
+
+</body>
+
+</html>
